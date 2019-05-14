@@ -29,30 +29,42 @@ class Owner
 
   def buy_fish(fish_name)
     fish = Fish.new(fish_name)
-    self.pets[:fishes][0] = fish
+    self.pets[:fishes] << fish
   end
 
   def buy_cat(cat_name)
     cat = Cat.new(cat_name)
-    self.pets[:cats][0] = cat
+    self.pets[:cats] << cat
   end
 
   def buy_dog(dog_name)
     dog = Dog.new(dog_name)
-    self.pets[:dogs][0] = dog
+    self.pets[:dogs] << dog
   end
 
   def walk_dogs
-      self.pets[:dogs][0].mood="happy"
-  end
+    self.pets.each do |k,v|
+      v.map do |pet|
+        pet.mood = "happy"
+      end
+   end
+end
 
   def play_with_cats
-      self.pets[:cats][0].mood="happy"
-  end
+    self.pets.each do |k,v|
+      v.map do |pet|
+        pet.mood = "happy"
+      end
+   end
+end
 
   def feed_fish
-      self.pets[:fishes][0].mood="happy"
-  end
+    self.pets.each do |k,v|
+      v.map do |pet|
+        pet.mood = "happy"
+      end
+   end
+end
 
   def sell_pets
     self.pets.each do |k,v|
